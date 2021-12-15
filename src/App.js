@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
+import DashboardPage from "./pages/DashboardPage";
+import SignupPage from "./pages/SignupPage";
 
-function App() {
+import AuthRoute from "./components/AuthRoute";
+import BasicRoute from "./components/BacisRoute";
+import { connect } from "react-redux";
+
+function App({ checked }) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+    <Router>
+      {checked && (
+        <Switch>
+          <BasicRoute path="/signup">
+            <SignupPage/>
+          </BasicRoute>
+
+          <BasicRoute path="/login">
+            <LoginPage />
+          </BasicRoute>
+
+          <AuthRoute path="/dashboard">
+            <DashboardPage />
+          </AuthRoute>
+
+          <Route path="/">
+            <HomePage />
+          </Route>
+        </Switch>
+      )}
+    </Router>
     </div>
   );
 }
+const mapStateToProps = ({ session }) => ({
+  checked: session.checked,
+});
 
-export default App;
+export default connect(mapStateToProps)(App);

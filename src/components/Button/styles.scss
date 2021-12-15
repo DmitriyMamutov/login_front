@@ -1,0 +1,27 @@
+button {
+    display: block;
+    margin: auto;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.15s;
+    width: 320px;
+    border: 0;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.535714px;
+    text-transform: capitalize;
+    height: 56px;
+    background-color: #20232a;
+    color: white;
+
+    &:hover {
+      background-color: #505e68;
+    }
+
+    &:focus {
+      background-color: #2d323b;
+    }
+  }
