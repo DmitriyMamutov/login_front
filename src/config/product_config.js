@@ -6,7 +6,7 @@ module.exports = {
     publisher: "Publisher: ",
     firstAppearence: "First appearence: ",
     occupation: "Occupation: ",
-    error:"There was an error please refresh or try again later",
-    productsLink: "/products"
+    error: "There was an error please refresh or try again later",
+    productsLink: "/products",
   },
 };
