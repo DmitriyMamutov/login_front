@@ -12,6 +12,23 @@ a {
   box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 4px;
   transition: 0.3s ease-out;
 
+  @media (max-width: 1200px) {
+    max-width: 300px;
+    max-width: auto;
+  }
+
+  @media (max-width: 1020px) {
+    max-width: 400px;
+  }
+
+  @media (max-width: 880px) {
+    max-width: 320px;
+  }
+
+  @media (max-width: 720px) {
+    max-width: 100%;
+  }
+
   &--active {
     background-color: #f3f5fa;
 

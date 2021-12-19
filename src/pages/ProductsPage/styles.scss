@@ -3,13 +3,32 @@
 .products-wrapper {
   color: $colorWhite;
 
+  @media (max-width: 768px) {
+    margin-top: -80px;
+  }
+
   &-header {
     display: flex;
     justify-content: space-between;
     margin-bottom: 80px;
 
+    @media (max-width: 580px) {
+      flex-direction: column-reverse;
+    }
+
+    .title {
+      @media (max-width: 370px) {
+        font-size: 40px;
+      }
+    }
+
     button {
       margin: auto 0;
+
+      @media (max-width: 580px) {
+        margin-left: auto;
+        margin-bottom: 16px;
+      }
     }
   }
 
@@ -17,5 +36,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+
+    @media (max-width: 720px) {
+      justify-content: center;
+    }
   }
 }
