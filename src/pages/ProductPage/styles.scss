@@ -1,0 +1,66 @@
+@import "../../variables.scss";
+
+.product-wrapper {
+  color: $colorWhite;
+  padding-bottom: 120px;
+
+  &-header {
+    display: flex;
+    margin-bottom: 80px;
+
+    button {
+      margin: 12px 0 12px auto;
+    }
+  }
+
+  .product-content {
+    display: flex;
+    justify-content: space-between;
+
+    &__image {
+      max-width: 500px;
+      width: 100%;
+      img {
+        width: 100%;
+      }
+    }
+
+    &-text {
+      max-width: 650px;
+      width: 100%;
+
+      .title {
+        margin-bottom: 40px;
+      }
+
+      &__large {
+        margin-bottom: 16px;
+        // color: $colorMediumGrey;
+        font-size: 22px;
+        line-height: 40px;
+      }
+
+      &__medium {
+        margin-bottom: 14px;
+        // color: $colorMediumGrey;
+        font-size: 18px;
+        line-height: 32px;
+      }
+
+      &__small {
+        margin-bottom: 12px;
+        // color: $colorMediumGrey;
+        font-size: 16px;
+        line-height: 28px;
+      }
+
+      &__grey {
+        color: $colorMediumGrey;
+      }
+
+      &__silver {
+        color: $colorSilver;
+      }
+    }
+  }
+}

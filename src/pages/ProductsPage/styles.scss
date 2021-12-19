@@ -1,0 +1,21 @@
+@import "../../variables.scss";
+
+.products-wrapper {
+  color: $colorWhite;
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 80px;
+
+    button {
+      margin: auto 0;
+    }
+  }
+
+  .products-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}

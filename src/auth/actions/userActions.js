@@ -1,15 +1,23 @@
 import axios from "axios";
-
 import { sessionService } from "redux-react-session";
 
-export const loginUser = (credentials, history, setFieldError, setSubmitting) => {
+export const loginUser = (
+  credentials,
+  history,
+  setFieldError,
+  setSubmitting
+) => {
   return () => {
     axios
-      .post("https://sleepy-garden-29076.herokuapp.com/user/signin", credentials, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
+      .post(
+        "https://sleepy-garden-29076.herokuapp.com/user/signin",
+        credentials,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
       .then((response) => {
         const { data } = response;
 
@@ -47,14 +55,23 @@ export const loginUser = (credentials, history, setFieldError, setSubmitting) =>
   };
 };
 
-export const signupUser = (credentials, history, setFieldError, setSubmitting) => {
+export const signupUser = (
+  credentials,
+  history,
+  setFieldError,
+  setSubmitting
+) => {
   return (dispatch) => {
     axios
-      .post("https://sleepy-garden-29076.herokuapp.com/user/signup", credentials, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
+      .post(
+        "https://sleepy-garden-29076.herokuapp.com/user/signup",
+        credentials,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
       .then((response) => {
         const { data } = response;
 
@@ -75,7 +92,14 @@ export const signupUser = (credentials, history, setFieldError, setSubmitting) =
           //login user after success signup
           const { email, password } = credentials;
 
-          dispatch(loginUser({ email, password }, history, setFieldError, setSubmitting));
+          dispatch(
+            loginUser(
+              { email, password },
+              history,
+              setFieldError,
+              setSubmitting
+            )
+          );
         }
       })
       .catch((err) => console.error(err));

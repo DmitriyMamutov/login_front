@@ -1,4 +1,6 @@
-*{
+@import "./variables.scss";
+
+* {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
@@ -6,24 +8,31 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
+  background-color: $colorPrimaryBlack;
+
   .container {
     max-width: 1260px;
     width: 100%;
     padding: 0 30px;
     margin: 0 auto;
   }
-  
+
+  ::selection {
+    background: $colorPrimaryYellow;
+    color: $colorBlack;
+  }
 }
 
+.page-wrapper {
+  padding-top: 120px;
+}
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
