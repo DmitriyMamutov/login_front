@@ -7,6 +7,7 @@
       "esnext"
     ],
     "allowJs": true,
+    "noUnusedParameters": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -19,7 +20,8 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": "src"
+    "baseUrl": "src",
+    "noUnusedLocals": false,
   },
   "include": [
     "src"

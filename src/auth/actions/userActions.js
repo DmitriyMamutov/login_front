@@ -41,7 +41,7 @@ export const loginUser = (
               sessionService
                 .saveUser(userData)
                 .then(() => {
-                  history.push("/dashboard");
+                  history.push("/products");
                 })
                 .catch((err) => console.error(err));
             })
