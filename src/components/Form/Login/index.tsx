@@ -1,3 +1,4 @@
+import { FC } from "react";
 import Button from "../../Button";
 import { Link, useHistory } from "react-router-dom";
 import Title from "../../Title";
@@ -14,7 +15,21 @@ import Loader from "react-loader-spinner";
 
 import "../styles.scss";
 
-const Login = (props) => {
+interface IValues {
+  email: string;
+  password: string;
+}
+
+type Props = {
+  loginUser: (
+    values: IValues,
+    history: any,
+    setFieldError: (field: string, message: string | undefined) => void,
+    setSubmitting: (isSubmitting: boolean) => void
+  ) => void;
+};
+
+const Login: FC<Props> = (props) => {
   const { loginUser } = props;
 
   const { title, bottomText, linkText, signupLink } = LOGIN_COMPONENT_CONFIG;

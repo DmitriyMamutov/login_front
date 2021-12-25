@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { KEY_ITEMS } from "../../config/product_config";
 
 type Props = {
-  authenticated?: any;
+  authenticated?: boolean;
 };
 
 const BasicRoute: FC<Props> = ({ children, authenticated, ...rest }) => {

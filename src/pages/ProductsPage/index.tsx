@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+import React, { FC } from "react";
 import Button from "../../components/Button";
 import Title from "../../components/Title";
 import { connect } from "react-redux";
@@ -12,24 +12,22 @@ import { KEY_ITEMS } from "../../config/product_config";
 import "./styles.scss";
 
 type Props = {
-  logoutUser: any
-}
+  logoutUser: any;
+};
 
+type Products = {
+  error: boolean;
+  data: any;
+};
 
-type Products ={
-error: boolean
-data: any
-}
-
-// interface Idata {
-//   id: string
-// }
 
 interface IProduct {
-  id: string
+  id: string;
+  name: string;
+  image: { url: string };
 }
 
-const ProductsPage:FC<Props> = ({ logoutUser }) => {
+const ProductsPage: FC<Props> = ({ logoutUser }) => {
   const limit = 21;
 
   const history = useHistory();
@@ -48,7 +46,8 @@ const ProductsPage:FC<Props> = ({ logoutUser }) => {
   if (products.data) {
     content = (
       <div className="products-list">
-        {products.data.results.slice(0, limit ? limit : products.data.results.length)
+        {products.data.results
+          .slice(0, limit ? limit : products.data.results.length)
           .map((product: IProduct) => {
             return (
               <React.Fragment key={product.id}>
