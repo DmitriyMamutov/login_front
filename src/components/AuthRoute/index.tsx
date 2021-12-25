@@ -4,8 +4,9 @@ import { connect } from "react-redux";
 import { SIGNUP_COMPONENT_CONFIG } from "../../config/signup_config";
 
 type Props = {
-  children?: null;
+  children?: JSX.Element;
   authenticated?: boolean;
+  path: string;
 };
 
 const AuthRoute: FC<Props> = ({ children, authenticated, ...rest }) => {

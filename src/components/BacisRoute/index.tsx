@@ -5,6 +5,8 @@ import { KEY_ITEMS } from "../../config/product_config";
 
 type Props = {
   authenticated?: boolean;
+  children: JSX.Element;
+  path: string;
 };
 
 const BasicRoute: FC<Props> = ({ children, authenticated, ...rest }) => {
@@ -13,7 +15,7 @@ const BasicRoute: FC<Props> = ({ children, authenticated, ...rest }) => {
   return (
     <Route
       {...rest}
-      render={( {location} ) =>
+      render={({ location }) =>
         !authenticated ? (
           children
         ) : (

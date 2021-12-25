@@ -1,5 +1,5 @@
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
   Switch,
   Route,
   Redirect,
@@ -13,10 +13,10 @@ import BasicRoute from "./components/BacisRoute";
 import { connect } from "react-redux";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
-function App({ checked }) {
+function App({ checked }: { checked: boolean }) {
   return (
     <div className="container">
-      <Router>
+      <BrowserRouter>
         {checked && (
           <Switch>
             <BasicRoute path="/signup">
@@ -40,11 +40,14 @@ function App({ checked }) {
             </Route>
           </Switch>
         )}
-      </Router>
+      </BrowserRouter>
     </div>
   );
 }
-const mapStateToProps = ({ session }) => ({
+interface ISession {
+  checked: boolean;
+}
+const mapStateToProps = ({ session }: { session: ISession }) => ({
   checked: session.checked,
 });
 

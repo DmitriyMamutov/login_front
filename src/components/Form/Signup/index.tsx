@@ -38,6 +38,9 @@ const Signup: FC<Props> = (props) => {
 
   const history = useHistory();
 
+console.log("history sign up", history)
+
+
   return (
     <div className="form">
       <div className="form-box">
