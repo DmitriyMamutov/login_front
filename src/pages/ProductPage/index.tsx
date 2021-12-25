@@ -1,3 +1,4 @@
+import { FC } from "react";
 import cn from "classnames";
 import Button from "../../components/Button";
 import Title from "../../components/Title";
@@ -9,10 +10,14 @@ import { KEY_ITEMS } from "../../config/product_config";
 
 import "./styles.scss";
 
-const Product = ({ logoutUser }) => {
+type Props = {
+  logoutUser: any;
+};
+
+const Product: FC<Props> = ({ logoutUser }) => {
   const history = useHistory();
 
-  const { id } = useParams();
+  const { id } = useParams<{ id?: string }>();
 
   const {
     realName,
@@ -26,7 +31,7 @@ const Product = ({ logoutUser }) => {
 
   const url = `https://www.superheroapi.com/api.php/3113867145563590/${id}`;
 
-  let product = useAxiosGet(url);
+  const product = useAxiosGet(url);
 
   let content = null;
 
@@ -41,31 +46,32 @@ const Product = ({ logoutUser }) => {
           <div className="product-content__image">
             <img
               width={200}
-              src={product.data.image.url}
-              alt={product.data.name}
+              src={product.data["image"]["url"]}
+              alt={product.data["name"]}
             />
           </div>
           <div className="product-content-text">
-            <Title color="white" text={product.data.name} />
+            <Title color="white" text={product.data["name"]} />
             <div className="product-content-text__large product-content-text__silver">
-              <b>{realName}</b> {product.data.biography["full-name"]}
+              <b>{realName}</b> {product.data["biography"]["full-name"]}
             </div>
             <div className="product-content-text__medium product-content-text__silver">
-              <b>{placeOfBirth}</b> {product.data.biography["place-of-birth"]}
+              <b>{placeOfBirth}</b>{" "}
+              {product.data["biography"]["place-of-birth"]}
             </div>
             <div className="product-content-text__medium product-content-text__silver">
               <b>{groupAffiliation}</b>
-              {product.data.connections["group-affiliation"]}
+              {product.data["connections"]["group-affiliation"]}
             </div>
             <div className="product-content-text__medium product-content-text__grey">
-              <b>{publisher}</b> {product.data.biography.publisher}
+              <b>{publisher}</b> {product.data["biography"]["publisher"]}
             </div>
             <div className="product-content-text__medium product-content-text__grey">
               <b>{firstAppearence}</b>
-              {product.data.biography["first-appearance"]}
+              {product.data["biography"]["first-appearance"]}
             </div>
             <div className="product-content-text__large">
-              <b>{occupation}</b> {product.data.work.occupation}
+              <b>{occupation}</b> {product.data["work"]["occupation"]}
             </div>
           </div>
         </div>

@@ -13,7 +13,7 @@ const AuthRoute: FC<Props> = ({ children, authenticated, ...rest }) => {
   return (
     <Route
       {...rest}
-      render={({ location }: { location: string }) =>
+      render={({ location }: { location: any }) =>
         authenticated ? (
           children
         ) : (

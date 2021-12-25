@@ -1,4 +1,4 @@
-import React from "react";
+import React, {FC} from "react";
 import Button from "../../components/Button";
 import Title from "../../components/Title";
 import { connect } from "react-redux";
@@ -11,7 +11,25 @@ import { KEY_ITEMS } from "../../config/product_config";
 
 import "./styles.scss";
 
-const ProductsPage = ({ logoutUser }) => {
+type Props = {
+  logoutUser: any
+}
+
+
+type Products ={
+error: boolean
+data: any
+}
+
+// interface Idata {
+//   id: string
+// }
+
+interface IProduct {
+  id: string
+}
+
+const ProductsPage:FC<Props> = ({ logoutUser }) => {
   const limit = 21;
 
   const history = useHistory();
@@ -19,7 +37,7 @@ const ProductsPage = ({ logoutUser }) => {
 
   const url = `https://www.superheroapi.com/api.php/3113867145563590/search/man`;
 
-  let products = useAxiosGet(url);
+  const products: Products = useAxiosGet(url);
 
   let content = null;
 
@@ -30,9 +48,8 @@ const ProductsPage = ({ logoutUser }) => {
   if (products.data) {
     content = (
       <div className="products-list">
-        {products.data.results
-          .slice(0, limit ? limit : products.data.results.length)
-          .map((product) => {
+        {products.data.results.slice(0, limit ? limit : products.data.results.length)
+          .map((product: IProduct) => {
             return (
               <React.Fragment key={product.id}>
                 <ProductCard product={product} />

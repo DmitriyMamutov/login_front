@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { KEY_ITEMS } from "../../config/product_config";
 
 type Props = {
-  authenticated?: boolean;
+  authenticated?: any;
 };
 
 const BasicRoute: FC<Props> = ({ children, authenticated, ...rest }) => {
@@ -13,7 +13,7 @@ const BasicRoute: FC<Props> = ({ children, authenticated, ...rest }) => {
   return (
     <Route
       {...rest}
-      render={({ location }: { location: string }) =>
+      render={( {location} ) =>
         !authenticated ? (
           children
         ) : (
