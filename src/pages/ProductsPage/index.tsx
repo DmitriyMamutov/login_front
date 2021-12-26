@@ -9,7 +9,7 @@ import cn from "classnames";
 import { useAxiosGet } from "../../hooks/HttpRequests";
 import { KEY_ITEMS } from "../../config/product_config";
 import { IProduct } from "../../interfaces";
-import { ProductsProps } from "../../types";
+import { ProductProps } from "../../types";
 
 import "./styles.scss";
 
@@ -18,7 +18,7 @@ interface IProducts {
   data: any;
 }
 
-const ProductsPage: FC<ProductsProps> = ({ logoutUser }) => {
+const ProductsPage: FC<ProductProps> = ({ logoutUser }) => {
   const limit = 21;
 
   const history = useHistory();

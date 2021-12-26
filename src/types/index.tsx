@@ -1,8 +1,8 @@
 import { IHistory } from "../interfaces";
 
-export type ProductsProps = {
-  logoutUser: (history: IHistory) => void;
-};
+// export type ProductsProps = {
+//   logoutUser: (history: IHistory) => void;
+// };
 
 export type ProductProps = {
   logoutUser: (history: IHistory) => void;
