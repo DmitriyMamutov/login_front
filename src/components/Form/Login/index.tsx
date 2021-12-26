@@ -12,10 +12,9 @@ import {
 } from "../../../config/login_config";
 import { loginValidationSchema } from "../../../utils/validations";
 import Loader from "react-loader-spinner";
-import {ILogin, IHistory} from "../../../interfaces"
+import { ILogin, IHistory } from "../../../interfaces";
 
 import "../styles.scss";
-
 
 type Props = {
   loginUser: (
@@ -32,7 +31,6 @@ const Login: FC<Props> = (props) => {
   const { title, bottomText, linkText, signupLink } = LOGIN_COMPONENT_CONFIG;
 
   const history = useHistory();
-
 
   return (
     <div className="form">

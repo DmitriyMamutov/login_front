@@ -1,9 +1,11 @@
+import { IHistory } from "../interfaces";
+
 export type ProductsProps = {
-  logoutUser: any;
+  logoutUser: (history: IHistory) => void;
 };
 
 export type ProductProps = {
-  logoutUser: (history: any) => void;
+  logoutUser: (history: IHistory) => void;
 };
 
 export type SignUpFieldsProps = {

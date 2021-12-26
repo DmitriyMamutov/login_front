@@ -1,8 +1,6 @@
 import { FC } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { KEY_ITEMS } from "../../config/product_config";
-import { ISessionAuth } from "../../interfaces";
 
 type Props = {
   authenticated?: boolean;
@@ -10,9 +8,11 @@ type Props = {
   path: string;
 };
 
-const BasicRoute: FC<Props> = ({ children, authenticated, ...rest }) => {
-  const { productsLink } = KEY_ITEMS;
+interface ISession {
+  authenticated: boolean;
+}
 
+const BasicRoute: FC<Props> = ({ children, authenticated, ...rest }) => {
   return (
     <Route
       {...rest}
@@ -22,7 +22,7 @@ const BasicRoute: FC<Props> = ({ children, authenticated, ...rest }) => {
         ) : (
           <Redirect
             to={{
-              pathname: productsLink,
+              pathname: "/products",
               state: { from: location },
             }}
           />
@@ -32,7 +32,7 @@ const BasicRoute: FC<Props> = ({ children, authenticated, ...rest }) => {
   );
 };
 
-const mapStateToProps = (session: ISessionAuth) => ({
+const mapStateToProps = ({ session }: { session: ISession }) => ({
   authenticated: session.authenticated,
 });
 

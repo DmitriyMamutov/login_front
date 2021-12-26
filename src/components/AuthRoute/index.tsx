@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { SIGNUP_COMPONENT_CONFIG } from "../../config/signup_config";
 
 type Props = {
   children?: JSX.Element;
@@ -9,19 +8,21 @@ type Props = {
   path: string;
 };
 
-const AuthRoute: FC<Props> = ({ children, authenticated, ...rest }) => {
-  const { loginLink } = SIGNUP_COMPONENT_CONFIG;
+interface ISession {
+  authenticated: boolean;
+}
 
+const AuthRoute: FC<Props> = ({ children, authenticated, ...rest }) => {
   return (
     <Route
       {...rest}
-      render={({ location }: { location: any }) =>
+      render={({ location }) =>
         authenticated ? (
           children
         ) : (
           <Redirect
             to={{
-              pathname: loginLink,
+              pathname: "/login",
               state: { from: location },
             }}
           />
@@ -31,7 +32,7 @@ const AuthRoute: FC<Props> = ({ children, authenticated, ...rest }) => {
   );
 };
 
-const mapStateToProps = ({ session }: { session: any }) => ({
+const mapStateToProps = ({ session }: { session: ISession }) => ({
   authenticated: session.authenticated,
 });
 
