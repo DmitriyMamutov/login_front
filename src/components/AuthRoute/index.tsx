@@ -1,16 +1,13 @@
 import { FC } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
+import { ISessionAuth } from "../../interfaces";
 
 type Props = {
   children?: JSX.Element;
   authenticated?: boolean;
   path: string;
 };
-
-interface ISession {
-  authenticated: boolean;
-}
 
 const AuthRoute: FC<Props> = ({ children, authenticated, ...rest }) => {
   return (
@@ -32,7 +29,7 @@ const AuthRoute: FC<Props> = ({ children, authenticated, ...rest }) => {
   );
 };
 
-const mapStateToProps = ({ session }: { session: ISession }) => ({
+const mapStateToProps = ({ session }: { session: ISessionAuth }) => ({
   authenticated: session.authenticated,
 });
 
