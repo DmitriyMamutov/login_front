@@ -12,20 +12,14 @@ import {
 } from "../../../config/signup_config";
 import { signupValidationSchema } from "../../../utils/validations";
 import Loader from "react-loader-spinner";
+import { ISignUp, IHistory } from "../../../interfaces";
 
 import "../styles.scss";
 
-interface IValues {
-  name: string;
-  email: string;
-  password: string;
-  repeatPassword: string;
-}
-
 type Props = {
   signupUser: (
-    values: IValues,
-    history: any,
+    values: ISignUp,
+    history: IHistory,
     setFieldError: (field: string, message: string | undefined) => void,
     setSubmitting: (isSubmitting: boolean) => void
   ) => void;
@@ -37,9 +31,6 @@ const Signup: FC<Props> = (props) => {
   const { title, bottomText, linkText, loginLink } = SIGNUP_COMPONENT_CONFIG;
 
   const history = useHistory();
-
-console.log("history sign up", history)
-
 
   return (
     <div className="form">

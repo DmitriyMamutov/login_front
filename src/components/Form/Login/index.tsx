@@ -12,19 +12,16 @@ import {
 } from "../../../config/login_config";
 import { loginValidationSchema } from "../../../utils/validations";
 import Loader from "react-loader-spinner";
+import {ILogin, IHistory} from "../../../interfaces"
 
 import "../styles.scss";
 
-interface IValues {
-  email: string;
-  password: string;
-}
 
 type Props = {
   loginUser: (
-    values: IValues,
-    history: any,
-    setFieldError: (field: string, message: string | undefined) => void,
+    values: ILogin,
+    history: IHistory,
+    setFieldError: (field: string, message: string) => void,
     setSubmitting: (isSubmitting: boolean) => void
   ) => void;
 };

@@ -1,15 +1,6 @@
-type KEY_ITEMS = {
-  realName: string;
-  placeOfBirth: string;
-  groupAffiliation: string;
-  publisher: string;
-  firstAppearence: string;
-  occupation: string;
-  error: string;
-  productsLink: string;
-};
+import { KeyItemsProps } from "../types";
 
-export const KEY_ITEMS: KEY_ITEMS = {
+export const KEY_ITEMS: KeyItemsProps = {
   realName: "Real Name: ",
   placeOfBirth: "Place of birth: ",
   groupAffiliation: "Group Affiliation: ",

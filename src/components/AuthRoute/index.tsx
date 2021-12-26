@@ -11,6 +11,7 @@ type Props = {
 
 const AuthRoute: FC<Props> = ({ children, authenticated, ...rest }) => {
   const { loginLink } = SIGNUP_COMPONENT_CONFIG;
+
   return (
     <Route
       {...rest}

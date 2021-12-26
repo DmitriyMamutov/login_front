@@ -24,6 +24,10 @@
     "jsx": "react-jsx",
     "baseUrl": "src",
     "noUnusedLocals": false,
+    "checkJs": false,
+  },
+  "linterOptions": {
+    "exclude": ["src/**","src/auth"],
   },
   "include": [
     "src"

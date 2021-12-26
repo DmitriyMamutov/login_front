@@ -8,26 +8,17 @@ import ProductCard from "../../components/ProductCard";
 import cn from "classnames";
 import { useAxiosGet } from "../../hooks/HttpRequests";
 import { KEY_ITEMS } from "../../config/product_config";
+import { IProduct } from "../../interfaces";
+import { ProductsProps } from "../../types";
 
 import "./styles.scss";
 
-type Props = {
-  logoutUser: any;
-};
-
-type Products = {
+interface IProducts {
   error: boolean;
   data: any;
-};
-
-
-interface IProduct {
-  id: string;
-  name: string;
-  image: { url: string };
 }
 
-const ProductsPage: FC<Props> = ({ logoutUser }) => {
+const ProductsPage: FC<ProductsProps> = ({ logoutUser }) => {
   const limit = 21;
 
   const history = useHistory();
@@ -35,7 +26,7 @@ const ProductsPage: FC<Props> = ({ logoutUser }) => {
 
   const url = `https://www.superheroapi.com/api.php/3113867145563590/search/man`;
 
-  const products: Products = useAxiosGet(url);
+  const products: IProducts = useAxiosGet(url);
 
   let content = null;
 
@@ -45,7 +36,7 @@ const ProductsPage: FC<Props> = ({ logoutUser }) => {
 
   if (products.data) {
     content = (
-      <div className="products-list">
+      <div className="products-list"> 
         {products.data.results
           .slice(0, limit ? limit : products.data.results.length)
           .map((product: IProduct) => {

@@ -1,18 +1,6 @@
-type FIELDS_LIST = {
-  id: string;
-  name: string;
-  placeholder: string;
-  type: string;
-}[];
+import { SignUpFieldsProps, SignUpConfigProps } from "../types";
 
-type SIGNUP_COMPONENT_CONFIG = {
-  title: string;
-  bottomText: string;
-  linkText: string;
-  loginLink: string;
-};
-
-export const FIELDS_LIST: FIELDS_LIST = [
+export const FIELDS_LIST: SignUpFieldsProps = [
   {
     id: "s1",
     name: "name",
@@ -39,7 +27,7 @@ export const FIELDS_LIST: FIELDS_LIST = [
   },
 ];
 
-export const SIGNUP_COMPONENT_CONFIG: SIGNUP_COMPONENT_CONFIG = {
+export const SIGNUP_COMPONENT_CONFIG: SignUpConfigProps = {
   title: "Sign up",
   bottomText: "Already have an account? ",
   linkText: "Login",

@@ -8,6 +8,7 @@ type Props = {
   className?: string;
   color?: string;
 };
+
 const Title: FC<Props> = (props) => {
   const { size, text, className, color } = props;
 

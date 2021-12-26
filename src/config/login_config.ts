@@ -1,18 +1,6 @@
-type FIELDS_LIST = {
-  id: string;
-  name: string;
-  placeholder: string;
-  type: string;
-}[];
+import {LoginFieldsProps, LoginConfigProps} from "../types"
 
-type LOGIN_COMPONENT_CONFIG = {
-  title: string;
-  bottomText: string;
-  linkText: string;
-  signupLink: string;
-};
-
-export const FIELDS_LIST: FIELDS_LIST = [
+export const FIELDS_LIST: LoginFieldsProps = [
   {
     id: "f1",
     name: "email",
@@ -27,7 +15,7 @@ export const FIELDS_LIST: FIELDS_LIST = [
   },
 ];
 
-export const LOGIN_COMPONENT_CONFIG: LOGIN_COMPONENT_CONFIG = {
+export const LOGIN_COMPONENT_CONFIG: LoginConfigProps = {
   title: "Login",
   bottomText: "New here? ",
   linkText: "Sign up",

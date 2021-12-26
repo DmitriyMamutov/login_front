@@ -1,13 +1,8 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
+import { IProduct } from "../../interfaces";
 
 import "./styles.scss";
-
-interface IProduct {
-  id: string;
-  name: string;
-  image: { url: string };
-}
 
 type Props = {
   product: IProduct;

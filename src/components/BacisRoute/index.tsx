@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { KEY_ITEMS } from "../../config/product_config";
+import { ISessionAuth } from "../../interfaces";
 
 type Props = {
   authenticated?: boolean;
@@ -31,7 +32,7 @@ const BasicRoute: FC<Props> = ({ children, authenticated, ...rest }) => {
   );
 };
 
-const mapStateToProps = ({ session }: { session: any }) => ({
+const mapStateToProps = (session: ISessionAuth) => ({
   authenticated: session.authenticated,
 });
 

@@ -7,14 +7,11 @@ import { logoutUser } from "../../auth/actions/userActions";
 import { useHistory, useParams } from "react-router-dom";
 import { useAxiosGet } from "../../hooks/HttpRequests";
 import { KEY_ITEMS } from "../../config/product_config";
+import { ProductProps } from "../../types";
 
 import "./styles.scss";
 
-type Props = {
-  logoutUser: any;
-};
-
-const Product: FC<Props> = ({ logoutUser }) => {
+const Product: FC<ProductProps> = ({ logoutUser }) => {
   const history = useHistory();
 
   const { id } = useParams<{ id?: string }>();
