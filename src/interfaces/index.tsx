@@ -24,6 +24,6 @@ export interface ISessionAuth {
 
 export interface IProduct {
   id: string;
-  name: string;
-  image: { url: string };
+  original_title: string;
+  backdrop_path: string;
 }

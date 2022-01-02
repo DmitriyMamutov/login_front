@@ -19,12 +19,12 @@ interface IProducts {
 }
 
 const ProductsPage: FC<ProductProps> = ({ logoutUser }) => {
-  const limit = 21;
+  const limit = null;
 
   const history = useHistory();
   const { error } = KEY_ITEMS;
 
-  const url = `https://www.superheroapi.com/api.php/3113867145563590/search/man`;
+  const url = `https://api.themoviedb.org/3/movie/popular?api_key=006c6db01a0ca6d84742df40f2306406`;
 
   const products: IProducts = useAxiosGet(url);
 

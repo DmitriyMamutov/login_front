@@ -26,7 +26,11 @@ const Product: FC<ProductProps> = ({ logoutUser }) => {
     error,
   } = KEY_ITEMS;
 
-  const url = `https://www.superheroapi.com/api.php/3113867145563590/${id}`;
+  const url = `https://api.themoviedb.org/3/movie/${id}?api_key=006c6db01a0ca6d84742df40f2306406&language=en-US`;
+
+  console.log("url", url);
+
+  const imageUrl = "https://image.tmdb.org/t/p/original/";
 
   const product = useAxiosGet(url);
 
@@ -43,16 +47,16 @@ const Product: FC<ProductProps> = ({ logoutUser }) => {
           <div className="product-content__image">
             <img
               width={200}
-              src={product.data["image"]["url"]}
-              alt={product.data["name"]}
+              src={imageUrl + product.data["backdrop_path"]}
+              alt={product.data["original_title"]}
             />
           </div>
           <div className="product-content-text">
-            <Title color="white" text={product.data["name"]} />
+            <Title color="white" text={product.data["original_title"]} />
             <div className="product-content-text__large product-content-text__silver">
-              <b>{realName}</b> {product.data["biography"]["full-name"]}
+              <b>Overview</b> {product.data["overview"]}
             </div>
-            <div className="product-content-text__medium product-content-text__silver">
+            {/* <div className="product-content-text__medium product-content-text__silver">
               <b>{placeOfBirth}</b>{" "}
               {product.data["biography"]["place-of-birth"]}
             </div>
@@ -69,7 +73,7 @@ const Product: FC<ProductProps> = ({ logoutUser }) => {
             </div>
             <div className="product-content-text__large">
               <b>{occupation}</b> {product.data["work"]["occupation"]}
-            </div>
+            </div> */}
           </div>
         </div>
       </>
