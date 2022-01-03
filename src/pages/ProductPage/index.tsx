@@ -17,12 +17,12 @@ const Product: FC<ProductProps> = ({ logoutUser }) => {
   const { id } = useParams<{ id?: string }>();
 
   const {
-    realName,
-    placeOfBirth,
-    groupAffiliation,
-    publisher,
-    firstAppearence,
-    occupation,
+    // realName,
+    // placeOfBirth,
+    // groupAffiliation,
+    // publisher,
+    // firstAppearence,
+    // occupation,
     error,
   } = KEY_ITEMS;
 

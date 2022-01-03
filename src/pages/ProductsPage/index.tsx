@@ -53,7 +53,7 @@ const ProductsPage: FC<ProductProps> = ({ logoutUser }) => {
     <div>
       <div className={cn("page-wrapper", "products-wrapper")}>
         <div className={"products-wrapper-header"}>
-          <Title color="white" text="Superheroes" />
+          <Title color="white" text="Popular Movies" />
           <Button variant="logout" onClick={() => logoutUser(history)} />
         </div>
         {content}

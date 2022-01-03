@@ -1,7 +1,10 @@
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+
 import LoginPage from "./pages/LoginPage";
 import ProductsPage from "./pages/ProductsPage";
 import SignupPage from "./pages/SignUpPage";
+import EmailSent from "./pages/EmailSent";
+
 import Product from "./pages/ProductPage";
 import AuthRoute from "./components/AuthRoute";
 import BasicRoute from "./components/BacisRoute";
@@ -15,11 +18,15 @@ function App(checked: ISession) {
       <BrowserRouter>
         {checked && (
           <Switch>
+            <BasicRoute path="/emailsent/:userEmail">
+              <EmailSent />
+            </BasicRoute>
+
             <BasicRoute path="/signup">
               <SignupPage />
             </BasicRoute>
 
-            <BasicRoute path="/login">
+            <BasicRoute path="/login/:userEmail?">
               <LoginPage />
             </BasicRoute>
 

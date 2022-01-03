@@ -1,0 +1,74 @@
+@import "../../variables.scss";
+
+.products-wrapper {
+  color: $colorWhite;
+  max-width: 100%;
+
+  @media (max-width: 768px) {
+    margin-top: -80px;
+  }
+
+  &-header {
+    .title {
+      @media (max-width: 370px) {
+        font-size: 40px;
+      }
+    }
+  }
+
+  .products-content {
+    width: 100%;
+    
+    p {
+      font-size: 16px;
+      width: 100%;
+      color: $colorSilver;
+      margin-bottom: 24px;
+    }
+
+    b {
+      margin-right: 8px;
+    }
+    a {
+      font-size: 18px;
+      line-height: 32px;
+      color: $colorPrimaryYellow;
+      font-weight: 600;
+      transition: 0.15s;
+      position: relative;
+      z-index: 0;
+      padding: 5px;
+      margin: -5px 0;
+
+      text-decoration: none;
+      line-height: 1;
+
+      display: inline-block;
+      overflow: hidden;
+      vertical-align: bottom;
+      transition: color 0.3s ease-out;
+
+      &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        transform: translateY(calc(100% - 2px));
+        width: 100%;
+        height: 100%;
+        background: $colorPrimaryYellow;
+        transition: transform 0.25s ease-out;
+      }
+
+      &:hover {
+        text-decoration: none;
+        color: $colorBlack;
+
+        &::before {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+}

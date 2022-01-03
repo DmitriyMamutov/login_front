@@ -1,6 +1,6 @@
 import { FC } from "react";
 import Button from "../../Button";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import Title from "../../Title";
 import { Formik, Form as FormikForm } from "formik";
 import { loginUser } from "../../../auth/actions/userActions";
@@ -31,6 +31,7 @@ const Login: FC<Props> = (props) => {
   const { title, bottomText, linkText, signupLink } = LOGIN_COMPONENT_CONFIG;
 
   const history = useHistory();
+  const { userEmail }: any = useParams();
 
   return (
     <div className="form">
@@ -39,7 +40,7 @@ const Login: FC<Props> = (props) => {
 
         <Formik
           initialValues={{
-            email: "",
+            email: userEmail,
             password: "",
           }}
           validationSchema={loginValidationSchema}
