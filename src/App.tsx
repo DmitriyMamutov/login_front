@@ -4,6 +4,8 @@ import LoginPage from "./pages/LoginPage";
 import ProductsPage from "./pages/ProductsPage";
 import SignupPage from "./pages/SignUpPage";
 import EmailSent from "./pages/EmailSent";
+import ForgottenPassword from "./pages/ForgottenPassword";
+import PasswordReset from "./pages/PasswordReset";
 
 import Product from "./pages/ProductPage";
 import AuthRoute from "./components/AuthRoute";
@@ -18,7 +20,15 @@ function App(checked: ISession) {
       <BrowserRouter>
         {checked && (
           <Switch>
-            <BasicRoute path="/emailsent/:userEmail">
+            <BasicRoute path="/passwordreset/:userId/:resetString">
+              <PasswordReset />
+            </BasicRoute>
+
+            <BasicRoute path="/forgottenpassword">
+              <ForgottenPassword />
+            </BasicRoute>
+
+            <BasicRoute path="/emailsent/:userEmail?/:reset?">
               <EmailSent />
             </BasicRoute>
 

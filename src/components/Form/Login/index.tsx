@@ -68,6 +68,9 @@ const Login: FC<Props> = (props) => {
                   <div>{title}</div>
                 )}
               </Button>
+              <p className="form-box__footer-text">
+                Forgotten password? <Link to="forgottenpassword">Reset it</Link>
+              </p>
             </FormikForm>
           )}
         </Formik>

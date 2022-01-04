@@ -3,6 +3,11 @@ export interface ILogin {
   password: string;
 }
 
+export interface IResetPassword {
+  email: string;
+  redirectUrl: string;
+}
+
 export interface ISignUp {
   name: string;
   email: string;

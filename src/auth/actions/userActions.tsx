@@ -3,10 +3,10 @@ import { sessionService } from "redux-react-session";
 import { ILogin, IHistory, ISignUp } from "../../interfaces";
 
 //the remote endpoint and local
-const remoteUrl = "https://obscure-garden-97051.herokuapp.com/";
+// const remoteUrl = "https://obscure-garden-97051.herokuapp.com/";
 
-// const localUrl = "http://localhost:8000/";
-const currentUrl = remoteUrl;
+const localUrl = "http://localhost:8000/";
+const currentUrl = localUrl;
 
 export const loginUser = (
   credentials: ILogin,
@@ -91,7 +91,7 @@ export const signupUser = (
           history.push(`/emailsent/${email}`);
         }
 
-      //complete  submission
+        //complete  submission
         setSubmitting(false);
       })
       .catch((err) => console.error(err));
@@ -103,5 +103,78 @@ export const logoutUser = (history: IHistory) => {
     sessionService.deleteSession();
     sessionService.deleteUser();
     history.push("/");
+  };
+};
+
+export const forgottenPassword = (
+  credentials: ILogin,
+  history: IHistory,
+  setFieldError: (field: string, message: string) => void,
+  setSubmitting: (isSubmitting: boolean) => void
+) => {
+  return () => {
+    axios
+      .post(`${currentUrl}user/requestPasswordReset`, credentials, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then((response) => {
+        const { data } = response;
+
+        if (data.status === "FAILED") {
+          const { message } = data;
+
+          if (
+            message.toLowerCase().includes("user") ||
+            message.toLowerCase().includes("password") ||
+            message.toLowerCase().includes("email")
+          ) {
+            setFieldError("email", message);
+          }
+        } else if (data.status === "PENDING") {
+         
+          const {email} = credentials;
+
+          history.push(`/emailsent/${email}/${true}`)
+        }
+        setSubmitting(false);
+      })
+      .catch((err) => console.error(err));
+  };
+};
+
+export const resetPassword = (
+  credentials: ILogin,
+  history: IHistory,
+  setFieldError: (field: string, message: string) => void,
+  setSubmitting: (isSubmitting: boolean) => void
+) => {
+  return () => {
+    axios
+      .post(`${currentUrl}user/resetPassword`, credentials, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+      .then((response) => {
+        const { data } = response;
+
+        if (data.status === "FAILED") {
+          const { message } = data;
+
+          //check for specific error
+          if (
+            message.toLowerCase().includes("password") 
+          ) {
+            setFieldError("newPassword", message);
+          }
+        } else if (data.status === "SUCCESS") {
+
+          history.push(`/emailsent`)
+        }
+        setSubmitting(false);
+      })
+      .catch((err) => console.error(err));
   };
 };

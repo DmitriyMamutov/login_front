@@ -39,6 +39,24 @@
         margin: auto;
       }
     }
+
+    &__footer-text {
+      margin: 18px auto 0;
+      max-width: 320px;
+      width: 100%;
+      font-size: 16px;
+
+      a {
+        color: $colorDeepGrey !important;
+
+        &:hover {
+          color: $colorWhite !important;
+        }
+        &::before {
+          background: $colorDeepGrey !important;
+        }
+      }
+    }
   }
   &__bottom-text {
     font-size: 16px;
@@ -46,46 +64,46 @@
     width: 100%;
     margin: 0 auto;
     color: $colorSilver;
+  }
 
-    a {
-      font-size: 18px;
-      line-height: 32px;
-      color: $colorPrimaryYellow;
-      font-weight: 600;
-      transition: 0.15s;
-      position: relative;
-      z-index: 0;
-      padding: 5px;
-      margin: -5px 0;
+  a {
+    font-size: 18px;
+    line-height: 32px;
+    color: $colorPrimaryYellow;
+    font-weight: 600;
+    transition: 0.15s;
+    position: relative;
+    z-index: 0;
+    padding: 5px;
+    margin: -5px 0;
 
+    text-decoration: none;
+    line-height: 1;
+
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+    transition: color 0.3s ease-out;
+
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      transform: translateY(calc(100% - 2px));
+      width: 100%;
+      height: 100%;
+      background: $colorPrimaryYellow;
+      transition: transform 0.25s ease-out;
+    }
+
+    &:hover {
       text-decoration: none;
-      line-height: 1;
-
-      display: inline-block;
-      overflow: hidden;
-      vertical-align: bottom;
-      transition: color 0.3s ease-out;
+      color: $colorBlack;
 
       &::before {
-        content: "";
-        position: absolute;
-        z-index: -1;
-        top: 0;
-        left: 0;
-        transform: translateY(calc(100% - 2px));
-        width: 100%;
-        height: 100%;
-        background: $colorPrimaryYellow;
-        transition: transform 0.25s ease-out;
-      }
-
-      &:hover {
-        text-decoration: none;
-        color: $colorBlack;
-
-        &::before {
-          transform: translateY(0);
-        }
+        transform: translateY(0);
       }
     }
   }
