@@ -1,18 +1,12 @@
-import { FC } from "react";
 import cn from "classnames";
-import Button from "../../../../components/Button";
 import Title from "../../../../components/Title";
-import { connect } from "react-redux";
-import { logoutUser } from "../../../../auth/actions/userActions";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useAxiosGet } from "../../../../hooks/HttpRequests";
 import { KEY_ITEMS } from "../../../../config/product_config";
-import { ProductProps } from "../../../../types";
 
 import "./styles.scss";
 
-const CurrentProduct: FC<ProductProps> = ({ logoutUser }) => {
-  const history = useHistory();
+const CurrentProduct = () => {
 
   const { id } = useParams<{ id?: string }>();
 
@@ -54,12 +48,11 @@ const CurrentProduct: FC<ProductProps> = ({ logoutUser }) => {
 
   return (
     <div className={cn("page-wrapper", "product-wrapper")}>
-      <div className={"product-wrapper-header"}>
-        <Button variant="logout" onClick={() => logoutUser(history)} />
-      </div>
+      <div className="container">
       {content}
+    </div>
     </div>
   );
 };
 
-export default connect(null, { logoutUser })(CurrentProduct);
+export default CurrentProduct;

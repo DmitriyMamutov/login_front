@@ -25,51 +25,56 @@ const PasswordReset: FC<Props> = (props) => {
   const { resetPassword } = props;
 
   const history = useHistory();
-  
+
   const { userId, resetString }: IUser = useParams();
 
   return (
     <div className="form">
-      <div className="form-box">
-        <Title size="h3" text="Password Reset" />
+        <div className="form-box">
+          <Title size="h3" text="Password Reset" />
 
-        <Formik
-          initialValues={{
-            newPassword: "",
-            confirmNewPassword: "",
-            userId,
-            resetString,
-          }}
-          validationSchema={resetPasswordValidationSchema}
-          onSubmit={(values, { setSubmitting, setFieldError }) => {
-            resetPassword(values, history, setFieldError, setSubmitting);
-          }}
-        >
-          {({ isSubmitting }) => (
-            <FormikForm>
-              <div className="form-box-wrapper">
-                {FIELDS_LIST.map(({ id, name, placeholder, type }) => (
-                  <Input
-                    key={id}
-                    id={id}
-                    name={name}
-                    placeholder={placeholder}
-                    type={type}
-                  />
-                ))}
-              </div>
-              <Button type="submit">
-                {isSubmitting ? (
-                  <Loader type="TailSpin" color="#fff" width={32} height={32} />
-                ) : (
-                  <div>Submit</div>
-                )}
-              </Button>
-            </FormikForm>
-          )}
-        </Formik>
+          <Formik
+            initialValues={{
+              newPassword: "",
+              confirmNewPassword: "",
+              userId,
+              resetString,
+            }}
+            validationSchema={resetPasswordValidationSchema}
+            onSubmit={(values, { setSubmitting, setFieldError }) => {
+              resetPassword(values, history, setFieldError, setSubmitting);
+            }}
+          >
+            {({ isSubmitting }) => (
+              <FormikForm>
+                <div className="form-box-wrapper">
+                  {FIELDS_LIST.map(({ id, name, placeholder, type }) => (
+                    <Input
+                      key={id}
+                      id={id}
+                      name={name}
+                      placeholder={placeholder}
+                      type={type}
+                    />
+                  ))}
+                </div>
+                <Button type="submit">
+                  {isSubmitting ? (
+                    <Loader
+                      type="TailSpin"
+                      color="#fff"
+                      width={32}
+                      height={32}
+                    />
+                  ) : (
+                    <div>Submit</div>
+                  )}
+                </Button>
+              </FormikForm>
+            )}
+          </Formik>
+        </div>
       </div>
-    </div>
   );
 };
 

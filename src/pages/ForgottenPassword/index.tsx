@@ -3,8 +3,9 @@ import ForgottenPassword from "../../components/Form/ForgottenPassword";
 const ForgottenPasswordPage = () => {
   return (
     <div className="page-wrapper">
-      <ForgottenPassword
-      />
+      <div className="container">
+        <ForgottenPassword />
+      </div>
     </div>
   );
 };

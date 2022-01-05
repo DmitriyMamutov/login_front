@@ -8,19 +8,6 @@
     padding-top: 28px;
   }
 
-  &-header {
-    display: flex;
-    margin-bottom: 80px;
-
-    @media (max-width: 580px) {
-      margin-bottom: 40px;
-    }
-
-    button {
-      margin: 12px 0 12px auto;
-    }
-  }
-
   .product-content {
     display: flex;
     justify-content: space-between;

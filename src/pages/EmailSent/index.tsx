@@ -16,6 +16,7 @@ const EmailSent = () => {
     <div>
       {reset && userEmail && (
         <div className={cn("page-wrapper", "products-wrapper")}>
+        <div className="container">
           <div className={"products-wrapper-header"}>
             <Title color="white" text="Password Reset" />
           </div>
@@ -26,10 +27,12 @@ const EmailSent = () => {
             </p>
             <p>Check your email and click on the link to proceed!</p>
           </div>
+          </div>
         </div>
       )}
       {!reset && userEmail && (
         <div className={cn("page-wrapper", "products-wrapper")}>
+        <div className="container">
           <div className={"products-wrapper-header"}>
             <Title color="white" text="Account Confirmation" />
           </div>
@@ -42,10 +45,12 @@ const EmailSent = () => {
             <Link to={`/login/${userEmail}`}>Login</Link>
           </div>
         </div>
+        </div>
       )}
 
       {!reset && !userEmail && (
         <div className={cn("page-wrapper", "products-wrapper")}>
+        <div className="container">
           <div className={"products-wrapper-header"}>
             <Title color="white" text="Password Reset" />
           </div>
@@ -54,6 +59,7 @@ const EmailSent = () => {
             <p>You may now login.</p>
             <Link to={`/login`}>Login</Link>
           </div>
+        </div>
         </div>
       )}
     </div>

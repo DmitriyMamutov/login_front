@@ -16,7 +16,7 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 function App(checked: ISession) {
   return (
-    <div className="container">
+    <div>
       <BrowserRouter>
         {checked && (
           <Switch>

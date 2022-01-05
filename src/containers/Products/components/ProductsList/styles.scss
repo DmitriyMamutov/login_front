@@ -21,15 +21,6 @@
         font-size: 40px;
       }
     }
-
-    button {
-      margin: auto 0;
-
-      @media (max-width: 580px) {
-        margin-left: auto;
-        margin-bottom: 16px;
-      }
-    }
   }
 
   .products-list {
