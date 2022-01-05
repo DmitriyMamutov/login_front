@@ -8,23 +8,26 @@ type Props = {
   product: IProduct;
 };
 
-const imageUrl = "https://image.tmdb.org/t/p/original/";
+const imageUrl = process.env.REACT_APP_IMAGE_COMPRESSED_URL;
 
 const ProductCard: FC<Props> = (props) => {
   return (
+    <div className="product-card-wrapper">
     <Link to={`/product/${props.product.id}`}>
       <div className="product-card">
         <div className="product-card__image">
           <img
-            src={imageUrl + props.product.backdrop_path}
+            src={imageUrl + props.product.poster_path}
             alt={props.product.original_title}
           />
+
         </div>
         <div className="product-card__title">
           {props.product.original_title}
         </div>
       </div>
     </Link>
+    </div>
   );
 };
 

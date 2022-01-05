@@ -37,4 +37,5 @@ export interface IProduct {
   id: string;
   original_title: string;
   backdrop_path: string;
+  poster_path: string;
 }

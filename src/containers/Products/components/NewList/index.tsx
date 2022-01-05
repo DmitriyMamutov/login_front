@@ -18,7 +18,7 @@ const ProductsList = () => {
 
   const { error } = KEY_ITEMS;
 
-  const url = `${process.env.REACT_APP_API_URL}/movie/popular?api_key=${process.env.REACT_APP_API_KEY}`;
+  const url = `${process.env.REACT_APP_API_URL}/trending/tv/week?api_key=${process.env.REACT_APP_API_KEY}`;
 
   const products: IProducts = useAxiosGet(url);
 
@@ -44,14 +44,12 @@ const ProductsList = () => {
     );
   }
   return (
-    <div>
+    <div className="new-list">
       <div className={cn("page-wrapper", "products-wrapper")}>
       <div className="container">
 
-          <Title color="white" text="Popular Movies" size="h2" />
-
+          <Title color="white" text="Trending TV Shows" size="h3" />
         {content}
-
       </div>
       </div>
     </div>
