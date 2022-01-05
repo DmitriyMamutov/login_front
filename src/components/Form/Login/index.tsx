@@ -31,6 +31,7 @@ const Login: FC<Props> = (props) => {
   const { title, bottomText, linkText, signupLink } = LOGIN_COMPONENT_CONFIG;
 
   const history = useHistory();
+
   const { userEmail }: any = useParams();
 
   return (

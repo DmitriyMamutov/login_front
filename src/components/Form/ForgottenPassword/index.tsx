@@ -1,21 +1,30 @@
+import { FC } from "react";
 import Button from "../../Button";
 import { useHistory, useParams } from "react-router-dom";
 import Title from "../../Title";
 import { Formik, Form as FormikForm } from "formik";
-import { resetPassword } from "../../../auth/actions/userActions";
+import { forgottenPassword } from "../../../auth/actions/userActions";
 import { connect } from "react-redux";
 import Input from "../../Input";
-import { FIELDS_LIST } from "../../../config/resetPassword_config";
-import { resetPasswordValidationSchema } from "../../../utils/validations";
+import { FIELDS_LIST } from "../../../config/forgottenPassword_config";
+import { forgottenPasswordValidationSchema } from "../../../utils/validations";
 import Loader from "react-loader-spinner";
 
 import "../styles.scss";
 
-const PasswordReset = (props) => {
-  const { resetPassword } = props;
+interface IUser {
+  userEmail: string;
+}
+
+type Props = {
+  forgottenPassword: any;
+};
+
+const ForgottenPassword: FC<Props> = (props) => {
+  const { forgottenPassword } = props;
 
   const history = useHistory();
-  const { userId, resetString } = useParams();
+  const { userEmail }: IUser = useParams();
 
   return (
     <div className="form">
@@ -24,14 +33,12 @@ const PasswordReset = (props) => {
 
         <Formik
           initialValues={{
-            newPassword: "",
-            confirmNewPassword: "",
-            userId,
-            resetString
+            email: userEmail,
+            redirectUrl: "http://localhost:3000/passwordreset",
           }}
-          validationSchema={resetPasswordValidationSchema}
+          validationSchema={forgottenPasswordValidationSchema}
           onSubmit={(values, { setSubmitting, setFieldError }) => {
-            resetPassword(values, history, setFieldError, setSubmitting);
+            forgottenPassword(values, history, setFieldError, setSubmitting);
           }}
         >
           {({ isSubmitting }) => (
@@ -62,4 +69,4 @@ const PasswordReset = (props) => {
   );
 };
 
-export default connect(null, { resetPassword })(PasswordReset);
+export default connect(null, { forgottenPassword })(ForgottenPassword);

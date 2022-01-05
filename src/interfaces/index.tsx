@@ -8,6 +8,12 @@ export interface IResetPassword {
   redirectUrl: string;
 }
 
+export interface IForgottenPassword{
+newPassword: string;
+confirmNewPassword: string;
+userId: string;
+resetString: string;
+}
 export interface ISignUp {
   name: string;
   email: string;

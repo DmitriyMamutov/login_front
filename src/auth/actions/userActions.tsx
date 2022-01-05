@@ -3,10 +3,10 @@ import { sessionService } from "redux-react-session";
 import { ILogin, IHistory, ISignUp } from "../../interfaces";
 
 //the remote endpoint and local
-// const remoteUrl = "https://obscure-garden-97051.herokuapp.com/";
+const remoteUrl = "https://obscure-garden-97051.herokuapp.com/";
 
-const localUrl = "http://localhost:8000/";
-const currentUrl = localUrl;
+// const localUrl = "http://localhost:8000/";
+const currentUrl = remoteUrl;
 
 export const loginUser = (
   credentials: ILogin,

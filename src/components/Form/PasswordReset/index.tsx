@@ -1,21 +1,32 @@
+import { FC } from "react";
 import Button from "../../Button";
 import { useHistory, useParams } from "react-router-dom";
 import Title from "../../Title";
 import { Formik, Form as FormikForm } from "formik";
-import { forgottenPassword } from "../../../auth/actions/userActions";
+import { resetPassword } from "../../../auth/actions/userActions";
 import { connect } from "react-redux";
 import Input from "../../Input";
-import { FIELDS_LIST } from "../../../config/forgottenPassword_config";
-import { forgottenPasswordValidationSchema } from "../../../utils/validations";
+import { FIELDS_LIST } from "../../../config/resetPassword_config";
+import { resetPasswordValidationSchema } from "../../../utils/validations";
 import Loader from "react-loader-spinner";
 
 import "../styles.scss";
 
-const ForgottenPassword = (props) => {
-  const { forgottenPassword } = props;
+type Props = {
+  resetPassword: any;
+};
+
+interface IUser {
+  userId: string;
+  resetString: string;
+}
+
+const PasswordReset: FC<Props> = (props) => {
+  const { resetPassword } = props;
 
   const history = useHistory();
-  const { userEmail } = useParams();
+  
+  const { userId, resetString }: IUser = useParams();
 
   return (
     <div className="form">
@@ -24,12 +35,14 @@ const ForgottenPassword = (props) => {
 
         <Formik
           initialValues={{
-            email: userEmail,
-            redirectUrl: "http://localhost:3000/passwordreset",
+            newPassword: "",
+            confirmNewPassword: "",
+            userId,
+            resetString,
           }}
-          validationSchema={forgottenPasswordValidationSchema}
+          validationSchema={resetPasswordValidationSchema}
           onSubmit={(values, { setSubmitting, setFieldError }) => {
-            forgottenPassword(values, history, setFieldError, setSubmitting);
+            resetPassword(values, history, setFieldError, setSubmitting);
           }}
         >
           {({ isSubmitting }) => (
@@ -60,4 +73,4 @@ const ForgottenPassword = (props) => {
   );
 };
 
-export default connect(null, { forgottenPassword })(ForgottenPassword);
+export default connect(null, { resetPassword })(PasswordReset);

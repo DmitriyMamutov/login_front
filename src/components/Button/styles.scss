@@ -25,7 +25,7 @@
       background-color: $colorDeepGrey;
     }
 
-    &:focus {
+    &:active{
       background-color: $colorDeepBlack;
     }
   }
@@ -68,7 +68,7 @@
       }
     }
 
-    &:focus {
+    &:active {
       background-color: $colorSilver;
 
       &::after {
